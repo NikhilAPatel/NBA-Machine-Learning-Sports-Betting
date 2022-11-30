@@ -32,15 +32,15 @@ def getRecentData():
                     return
 
                 #skip if this season hasn't started yet
-                if (month1 == 10 and day1 < 29):
-                    continue
+                # if (month1 == 10 and day1 < 29):
+                #     continue
 
                 try:
                     response = leaguedashteamstats.LeagueDashTeamStats(
                         team_id_nullable='0',
                         league_id_nullable='00',
                         season=str(season1),
-                        date_from_nullable='10/29/'+str(begin_year_pointer),
+                        # date_from_nullable='10/29/'+str(begin_year_pointer),
                         date_to_nullable=str(month1)+'/'+str(day1)+'/'+str(end_year_pointer),
                         last_n_games='0',
                         opponent_team_id='0',

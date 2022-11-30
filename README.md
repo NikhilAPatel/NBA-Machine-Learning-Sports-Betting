@@ -4,7 +4,7 @@
 A machine learning AI used to predict the winners and under/overs of NBA games. Takes all team data from the 2007-08 season to current season, matched with odds of those games, using a neural network to predict winning bets for today's games. Achieves ~75% accuracy on money lines and ~58% on under/overs. Outputs expected value for teams money lines to provide better insight. 
 ## Packages Used
 
-Use Python 3.8. In particular the packages/libraries used are...
+Use Python 3.10. In particular the packages/libraries used are...
 
 * Tensorflow - Machine learning library
 * XGBoost - Gradient boosting framework
@@ -22,7 +22,7 @@ Use Python 3.8. In particular the packages/libraries used are...
 Make sure all packages above are installed.
 
 ```bash
-$ git clone https://github.com/kyleskom/NBA-Machine-Learning-Sports-Betting.git
+$ git clone https://github.com/NikhilAPatel/NBA-Machine-Learning-Sports-Betting.git
 $ cd NBA-Machine-Learning-Sports-Betting
 $ pip3 install -r requirements.txt
 $ python3 main.py -xgb
@@ -35,8 +35,7 @@ All contributions welcomed and encouraged.
 
 ## Data
 
-Odds data from here: https://www.sportsbookreviewsonline.com/scoresoddsarchives/nba/nba%20odds%202022-23.xlsx
-(Change the URL)
+Odds data from here (Change the year at the end of the URL to specify which season to fetch): https://www.sportsbookreviewsonline.com/scoresoddsarchives/nba/nba%20odds%202022-23.xlsx
 
 NBA Data from here: https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguedashteamstats.md
 

@@ -3,6 +3,7 @@ import pandas as pd
 # import tensorflow as tf
 # from src.Predict import NN_Runner, XGBoost_Runner
 from src.Predict import XGBoost_Runner
+from src.Utils.CleanupModels import delete_all_but_best, delete_all
 
 from src.Utils.Dictionaries import team_index_current
 from src.Utils.tools import get_json_data, to_data_frame, get_todays_games_json, create_todays_games, create_historical_games
@@ -50,6 +51,13 @@ def createTodaysGames(games, df):
 
 
 def main():
+    if args.clean:
+        delete_all_but_best()
+        return
+    if args.cleanAll:
+        delete_all()
+        return
+
     if args.hist:
         games = create_historical_games()
     else:
@@ -83,5 +91,7 @@ if __name__ == "__main__":
     # parser.add_argument('-nn', action='store_true', help='Run with Neural Network Model')
     # parser.add_argument('-A', action='store_true', help='Run all Models')
     parser.add_argument('-hist', action='store_true', help='Run on Manually Entered Games')
+    parser.add_argument('-clean', action='store_true', help='Delete all but best models')
+    parser.add_argument('-cleanAll', action='store_true', help='Delete all models')
     args = parser.parse_args()
     main()

@@ -231,3 +231,37 @@ team_index_current = {
     'Utah Jazz': 28,
     'Washington Wizards': 29
 }
+
+team_index_odds = {
+    'Atlanta': 0,
+    'Boston': 1,
+    'Brooklyn': 2,
+    'Charlotte': 3,
+    'Chicago': 4,
+    'Cleveland': 5,
+    'Dallas': 6,
+    'Denver': 7,
+    'Detroit': 8,
+    'GoldenState': 9,
+    'Houston': 10,
+    'Indiana': 11,
+    'LAClippers': 12,
+    'LA Clippers': 12,
+    'LALakers': 13,
+    'Memphis': 14,
+    'Miami': 15,
+    'Milwaukee': 16,
+    'Minnesota': 17,
+    'NewOrleans': 18,
+    'NewYork': 19,
+    'OklahomaCity': 20,
+    'Orlando': 21,
+    'Philadelphia': 22,
+    'Phoenix': 23,
+    'Portland': 24,
+    'Sacramento': 25,
+    'SanAntonio': 26,
+    'Toronto': 27,
+    'Utah': 28,
+    'Washington': 29
+}

@@ -18,7 +18,7 @@ uoModel = select_XGB_Model("UO")
 xgb_ml.load_model(directory + mlModel)
 xgb_uo = xgb.Booster()
 xgb_uo.load_model(directory + uoModel)
-print("Running with: {1}, {2}".format(mlModel, uoModel))
+print("Running with: {0}, {1}".format(mlModel, uoModel))
 
 
 def xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds):
