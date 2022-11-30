@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-import tensorflow as tf
+# import tensorflow as tf
 # from src.Predict import NN_Runner, XGBoost_Runner
 from src.Predict import XGBoost_Runner
 
@@ -58,30 +58,30 @@ def main():
     data = get_json_data(data_url)
     df = to_data_frame(data)
     data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(games, df)
-    if args.nn:
-        print("------------Neural Network Model Predictions-----------")
-        data = tf.keras.utils.normalize(data, axis=1)
-        NN_Runner.nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds)
-        print("-------------------------------------------------------")
+    # if args.nn:
+    #     print("------------Neural Network Model Predictions-----------")
+    #     data = tf.keras.utils.normalize(data, axis=1)
+    #     NN_Runner.nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds)
+    #     print("-------------------------------------------------------")
     if args.xgb:
         print("---------------XGBoost Model Predictions---------------")
         XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds)
         print("-------------------------------------------------------")
-    if args.A:
-        print("---------------XGBoost Model Predictions---------------")
-        XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds)
-        print("-------------------------------------------------------")
-        data = tf.keras.utils.normalize(data, axis=1)
-        print("------------Neural Network Model Predictions-----------")
-        NN_Runner.nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds)
-        print("-------------------------------------------------------")
+    # if args.A:
+    #     print("---------------XGBoost Model Predictions---------------")
+    #     XGBoost_Runner.xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds)
+    #     print("-------------------------------------------------------")
+    #     data = tf.keras.utils.normalize(data, axis=1)
+    #     print("------------Neural Network Model Predictions-----------")
+    #     NN_Runner.nn_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds)
+    #     print("-------------------------------------------------------")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Model to Run')
     parser.add_argument('-xgb', action='store_true', help='Run with XGBoost Model')
-    parser.add_argument('-nn', action='store_true', help='Run with Neural Network Model')
-    parser.add_argument('-A', action='store_true', help='Run all Models')
+    # parser.add_argument('-nn', action='store_true', help='Run with Neural Network Model')
+    # parser.add_argument('-A', action='store_true', help='Run all Models')
     parser.add_argument('-hist', action='store_true', help='Run on Manually Entered Games')
     args = parser.parse_args()
     main()

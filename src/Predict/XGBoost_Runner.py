@@ -13,9 +13,12 @@ from src.Utils.ModelSelector import *
 init()
 xgb_ml = xgb.Booster()
 directory = "Models/XGBoost_Models/"
-xgb_ml.load_model(directory + select_XGB_Model("ML"))
+mlModel = select_XGB_Model("ML")
+uoModel = select_XGB_Model("UO")
+xgb_ml.load_model(directory + mlModel)
 xgb_uo = xgb.Booster()
-xgb_uo.load_model(directory + select_XGB_Model("UO"))
+xgb_uo.load_model(directory + uoModel)
+print("Running with: {1}, {2}".format(mlModel, uoModel))
 
 
 def xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds):

@@ -35,7 +35,17 @@ All contributions welcomed and encouraged.
 
 ## Data
 
-Odds data from here: https://www.sportsbookreviewsonline.com/scoresoddsarchives/nba/nba%20odds%202020-21.xlsx
+Odds data from here: https://www.sportsbookreviewsonline.com/scoresoddsarchives/nba/nba%20odds%202022-23.xlsx
 (Change the URL)
 
 NBA Data from here: https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguedashteamstats.md
+
+
+## Refreshing the Model to Include More Recent Season Data
+
+1. Run CleanupModel.py
+2. Download most recent odds data from link above
+3. Run Refresh_Data.py
+4. Run Process_Odds_Data.py with the current season
+5. Run Create_Games.py
+6. Retrain Both Models
