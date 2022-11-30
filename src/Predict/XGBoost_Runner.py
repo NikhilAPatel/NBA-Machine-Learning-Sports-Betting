@@ -6,16 +6,16 @@ import xgboost as xgb
 from colorama import Fore, Style, init, deinit
 from src.Utils import Expected_Value
 
-
 # from src.Utils.Dictionaries import team_index_current
 # from src.Utils.tools import get_json_data, to_data_frame, get_todays_games_json, create_todays_games
+from src.Utils.ModelSelector import *
+
 init()
 xgb_ml = xgb.Booster()
-#xgb_ml.load_model('Models/XGBoost_Models/XGBoost_74.5%_ML.json')
-xgb_ml.load_model('Models/XGBoost_Models/ML/XGBoost_74.1%_ML-2.json')
+directory = "Models/XGBoost_Models/"
+xgb_ml.load_model(directory + select_XGB_Model("ML"))
 xgb_uo = xgb.Booster()
-#xgb_uo.load_model('Models/XGBoost_Models/XGBoost_57.9%_UO.json')
-xgb_uo.load_model('Models/XGBoost_Models/UO/XGBoost_58.099999999999994%_UO-6.json')
+xgb_uo.load_model(directory + select_XGB_Model("UO"))
 
 
 def xgb_runner(data, todays_games_uo, frame_ml, games, home_team_odds, away_team_odds):
