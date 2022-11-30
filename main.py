@@ -1,9 +1,11 @@
 import argparse
 import pandas as pd
 import tensorflow as tf
-from src.Predict import NN_Runner, XGBoost_Runner
+# from src.Predict import NN_Runner, XGBoost_Runner
+from src.Predict import XGBoost_Runner
+
 from src.Utils.Dictionaries import team_index_current
-from src.Utils.tools import get_json_data, to_data_frame, get_todays_games_json, create_todays_games
+from src.Utils.tools import get_json_data, to_data_frame, get_todays_games_json, create_todays_games, create_historical_games
 
 todays_games_url = 'https://data.nba.com/data/10s/v2015/json/mobile_teams/nba/2022/scores/00_todays_scores.json'
 data_url = 'https://stats.nba.com/stats/leaguedashteamstats?' \
@@ -35,6 +37,8 @@ def createTodaysGames(games, df):
         stats = pd.concat([home_team_series, away_team_series])
         match_data.append(stats)
 
+
+
     games_data_frame = pd.concat(match_data, ignore_index=True, axis=1)
     games_data_frame = games_data_frame.T
 
@@ -46,8 +50,11 @@ def createTodaysGames(games, df):
 
 
 def main():
-    data = get_todays_games_json(todays_games_url)
-    games = create_todays_games(data)
+    if args.hist:
+        games = create_historical_games()
+    else:
+        data = get_todays_games_json(todays_games_url)
+        games = create_todays_games(data)
     data = get_json_data(data_url)
     df = to_data_frame(data)
     data, todays_games_uo, frame_ml, home_team_odds, away_team_odds = createTodaysGames(games, df)
@@ -75,5 +82,6 @@ if __name__ == "__main__":
     parser.add_argument('-xgb', action='store_true', help='Run with XGBoost Model')
     parser.add_argument('-nn', action='store_true', help='Run with Neural Network Model')
     parser.add_argument('-A', action='store_true', help='Run all Models')
+    parser.add_argument('-hist', action='store_true', help='Run on Manually Entered Games')
     args = parser.parse_args()
     main()

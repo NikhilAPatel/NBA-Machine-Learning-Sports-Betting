@@ -32,3 +32,10 @@ Enter under/over and odds for today's games.
 ## Contributing
 
 All contributions welcomed and encouraged.
+
+## Data
+
+Odds data from here: https://www.sportsbookreviewsonline.com/scoresoddsarchives/nba/nba%20odds%202020-21.xlsx
+(Change the URL)
+
+NBA Data from here: https://github.com/swar/nba_api/blob/master/docs/nba_api/stats/endpoints/leaguedashteamstats.md

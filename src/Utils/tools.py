@@ -50,3 +50,8 @@ def create_todays_games(input_list):
         away_team = away.get('tc') + ' ' + away.get('tn')
         games.append([home_team, away_team])
     return games
+
+def create_historical_games():
+    numGames = int(input("Number of Games: "))
+    return [[input("Game "+str(i)+" Home Team: "), input("Game "+str(i)+" Away Team: ")] for i in range(1, numGames+1)]
+
