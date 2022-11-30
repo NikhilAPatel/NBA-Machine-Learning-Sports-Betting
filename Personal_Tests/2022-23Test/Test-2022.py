@@ -42,13 +42,24 @@ away_team_odds = []
 home_team_score = []
 away_team_score = []
 
-currentDate = '10%2F21%2F2022'
-prevDate = '10%2F21%2F2022'
+currentDate = '10%2F20%2F2022'
+prevDate = '10%2F20%2F2022'
 data = get_json_data(data_url.format(currentDate))
 df = to_data_frame(data)
 
 for i in tqdm(range(0, len(allgames), 2)):
-    currentDateRaw = str(allgames.iloc[i]['Date'])
+    currentDateRaw = allgames.iloc[i]['Date']
+    currentMonthRaw = int(currentDateRaw/100)
+    currentDayRaw = int(currentDateRaw % 100)
+
+    currentDayRaw -=1
+
+    if(currentDayRaw==0):
+        currentDayRaw = 31
+        currentMonthRaw -=1
+
+    currentDateRaw = str(currentMonthRaw*100+currentDayRaw)
+
     currentDate = currentDateRaw[0:2] + '%2F' + currentDateRaw[2:] + '%2F2022'
 
     if(prevDate!=currentDate):
